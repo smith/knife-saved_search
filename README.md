@@ -55,7 +55,7 @@ Executes a saved search and returns its results.
 To use this plugin from the code in this repository:
 
 ```bash
-ln -sf /path/to/knife-saved_search/lib/chef/knife/saved_search.rb ~/.chef/plugins/knife/
+ln -sf /path/to/knife-saved_search/lib/chef/knife/* ~/.chef/plugins/knife/
 ```
 
 ## Testing
