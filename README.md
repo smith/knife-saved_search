@@ -12,7 +12,51 @@ Using [ChefDK](downloads.chef.io/chef-dk/), run:
 
 ## Usage
 
-TODO: Write usage instructions here
+By default a data bag named "saved-searches" is used to store searches. This
+can be set to something else by putting
+`knife[:saved_search][:data_bag] = "my-data-bag-name"` in your .chef/config.rb.
+
+This data bag will be created if it does not exist when a saved search is first
+created.
+
+A saved search data bag item looks like:
+
+```json
+{
+  "id": "name-of-saved-search",
+  "index": "node", // The search index used
+  "description": "A description of the search",
+  "query": "*:* " // The search query string used
+}
+```
+
+### `knife saved search list`
+
+Lists names of all saved searches.
+
+### `knife saved search show NAME`
+
+Shows an individual saved search.
+
+### `knife saved search delete NAME`
+
+Deletes a saved search.
+
+### `knife saved search create NAME INDEX QUERY [DESCRIPTION]`
+
+Creates a saved search.
+
+### `knife saved search exec NAME`
+
+Executes a saved search and returns its results.
+
+## Development
+
+To use this plugin from the code in this repository:
+
+```bash
+ln -sf /path/to/knife-saved_search/lib/chef/knife/saved_search.rb ~/.chef/plugins/knife/
+```
 
 ## Testing
 
