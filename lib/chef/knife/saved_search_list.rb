@@ -1,10 +1,14 @@
-require 'chef/knife'
+require "chef/knife"
 
 class Chef
   class Knife
     class SavedSearchList < Knife
       banner "knife saved search list (options)"
       category "saved search"
+
+      deps do
+        require "chef/data_bag"
+      end
 
       def run
         config[:saved_search] ||= {}
