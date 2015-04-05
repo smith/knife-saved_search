@@ -15,7 +15,9 @@ class Chef
           exit 1
         end
 
-        format_list_for_display(Chef::DataBagItem.load(data_bag, name_args[0]))
+        output format_for_display(
+          Chef::DataBagItem.load(data_bag, name_args[0]).raw_data
+        )
       end
     end
   end
