@@ -1,20 +1,14 @@
 require "chef/knife"
+require_relative "./saved_search_base"
 
 class Chef
   class Knife
     class SavedSearchList < Knife
-      banner "knife saved search list (options)"
-      category "saved search"
+      include SavedSearchBase
 
-      deps do
-        require "chef/data_bag"
-      end
+      banner "knife saved search list (options)"
 
       def run
-        config[:saved_search] ||= {}
-        config[:saved_search][:data_bag] ||= "saved-searches"
-
-        data_bag = config[:saved_search][:data_bag]
         list = {}
 
         begin
@@ -24,6 +18,7 @@ class Chef
             warn "\"#{data_bag}\" data bag does not exist. No saved searches could be found."
           end
         end
+
         format_list_for_display(list)
       end
     end

@@ -14,7 +14,7 @@ Using [ChefDK](downloads.chef.io/chef-dk/), run:
 
 By default a data bag named "saved-searches" is used to store searches. This
 can be set to something else by putting
-`knife[:saved_search][:data_bag] = "my-data-bag-name"` in your .chef/config.rb.
+`knife[:saved_search_data_bag] = "my-data-bag-name"` in your .chef/config.rb.
 
 This data bag will be created if it does not exist when a saved search is first
 created.
@@ -49,6 +49,10 @@ Creates a saved search.
 ### `knife saved search exec NAME`
 
 Executes a saved search and returns its results.
+
+### `knife saved search update NAME INDEX QUERY [DESCRIPTION]`
+
+Update the properties of an existing saved search.
 
 ## Development
 

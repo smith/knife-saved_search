@@ -1,21 +1,14 @@
 require "chef/knife"
+require_relative "./saved_search_base"
 
 class Chef
   class Knife
     class SavedSearchShow < Knife
-      banner "knife saved search show NAME (options)"
-      category "saved search"
+      include SavedSearchBase
 
-      deps do
-        require "chef/data_bag_item"
-      end
+      banner "knife saved search show NAME (options)"
 
       def run
-        config[:saved_search] ||= {}
-        config[:saved_search][:data_bag] ||= "saved-searches"
-
-        data_bag = config[:saved_search][:data_bag]
-
         if name_args.length != 1
           show_usage
           ui.fatal("You must specify at least a saved search name")
@@ -27,4 +20,3 @@ class Chef
     end
   end
 end
-
