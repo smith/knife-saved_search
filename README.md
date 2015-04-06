@@ -48,7 +48,8 @@ Creates a saved search.
 
 ### `knife saved search exec NAME`
 
-Executes a saved search and returns its results.
+Executes a saved search and returns its results. Takes the same options as
+knife search.
 
 ### `knife saved search update NAME INDEX QUERY [DESCRIPTION]`
 
@@ -61,10 +62,6 @@ To use this plugin from the code in this repository:
 ```bash
 ln -sf /path/to/knife-saved_search/lib/chef/knife/* ~/.chef/plugins/knife/
 ```
-
-## Testing
-
-Run `bundle exec rake` to run the RSpec test suite.
 
 ## Contributing
 
